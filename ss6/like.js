@@ -9,15 +9,20 @@ btn.addEventListener("click", function () {
     btn.innerText="Unlike";
 })
 
-// document.getElementById("text").addEventListener("click", function () {
-//     alert("hi")
-// })
+/*
+document.getElementById("text").addEventListener("click", function () {
+    alert("hi")
+})
+*/
+
 
 let a = +prompt("a")
 console.log(a)
 let b = +prompt("b")
 console.log(b)
 alert(a + b)
+
+
 
 
 
