@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Viết đoạn code dùng if bậc thang kiểm tra tháng mà người dùng nhập
+    // có bao nhiêu ngày.
+    // 1, 3, 5, 7, 8, 10, 12: 31 ngày
+    // 4, 6, 9, 11: 30 ngày
+    // 2: 28 hoặc 29 ngày
+    let inputMonth = +prompt("Nhập tháng");
+    // if(inputMonth === 1 ||inputMonth === 3 ||inputMonth === 5 ||inputMonth === 7 ||inputMonth === 8 ||inputMonth === 10 ||inputMonth === 12 ){
+    //     alert("tháng có 31 ngày");
+    // }
+    // else if(inputMonth === 4||inputMonth === 6 ||inputMonth === 9 ||inputMonth === 11){
+    //     alert("tháng có 30 ngày");
+    // }
+    // else if(inputMonth === 2){
+    //     alert("tháng 2 có 28 hoặc 29 ngày");
+    // }
+    // else{
+    //     alert("Wrong input");
+    // }
+
+    // biểu thức trong switch: number, string, boolean
+    // Nếu có bất kỳ case nào đúng thì sẽ chạy tất cả các case bên dưới mà không cần so sánh case ngoài trừ việc sử dụng break;
+    switch (inputMonth) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            alert(`Tháng ${inputMonth} có 31 ngày`)
+            break;
+        case 2:
+            alert(`Tháng 2 có 28 hoặc 29 ngày`)
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            alert(`Tháng ${inputMonth} Có 30 ngày`)
+            break;
+        default:
+            alert("Wrong input");
+
+    }
+
+    // if (inputMonth === 1)
+</script>
+</script>
+</body>
+</html>
