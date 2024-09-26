@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    <!--  Kiểm tra 1 số bất kỳ có phải là số hoàn hảo hay không-->
+    // tổng các ước bằng chính nó.
+    // 6: 1,2,3
+
+    // let a = +prompt("Nhập số cần kiểm tra (số phải là số nguyên dương): ")
+    // while(isNaN(a) || a <=0) {
+    //     a = +prompt("Nhập số cần kiểm tra (số phải là số nguyên dương): ")
+    // }
+    // alert(a)
+    let a;
+    do {
+        a = +prompt("Nhập số cần kiểm tra (số phải là số nguyên dương): ")
+    }while(isNaN(a) || a <=0);
+
+    let sum = 0;
+    for (let i = 1; i <= a/2; i++) {
+        if (a % i === 0) {
+            sum = sum + i;
+        }
+    }
+
+    // template string
+
+    if(sum === a) {
+        alert(`${a} là số hoàn hảo`)
+    } else {
+        alert(`${a} không phải là số hoàn hảo`)
+    }
+
+
+
+</script>
+</body>
+</html>
