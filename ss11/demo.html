@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // số nguyên tố là số chỉ chia hết cho 1 và chính nó. Vd: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, ...
+    //      Mã giả?
+    //      B1: Đếm số ước của số cần kiểm tra. Dùng vòng lặp thực hiện 1 -> n
+    //      B2: kiểm tra nếu số ước == 2 thì nó là số nguyên tố, ngược lại thì không phải
+    // let num;
+    // do {
+    //     num = +prompt("Nhập số cần kiểm tra. Yêu cầu: số đó là nguyên dương và lớn hơn 1.")
+    // } while (!Number.isInteger(num) || num < 2)
+    //
+    // let isPrime = true;
+    // for (let i = 2; i <= Math.sqrt(num); i++) {
+    //     if (num % i === 0) {
+    //         isPrime = false;
+    //         break;
+    //     }
+    // }
+    //
+    // if(isPrime) {
+    //     alert(`${num} là số nguyên tố`)
+    // } else {
+    //     alert(`${num} không phải là số nguyên tố`)
+    // }
+
+    //     Hiển thị 100 số nguyên tố đầu tiên
+    //     Mã giả?
+    //     B1: Cho vòng lặp chạy từ 2 => ??
+    //     B2: Với mỗi số chúng ta kiểm tra số đó có phải là số nguyên tố hay không?
+    //     B3: đếm nếu nó là số nguyên tố
+    //     B4: đủ 100 thì dừng.
+    let num = 2;
+    let count = 0;
+    let isPrime;
+    while (count < 100) {
+        isPrime = true;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if(isPrime) {
+            document.write(`${num} là số nguyên tố <br>`)
+            count++;
+        }
+        num++;
+    }
+
+
+</script>
+</body>
+</html>
