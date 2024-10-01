@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [1,2,"HaiTT", true, undefined, null];
+    // let arr = new Array(5);
+    // console.log(Array.isArray(arr));
+    // console.log(arr)
+    let length = arr.length;
+    // for i hay là for index
+    for(let i = 0; i < length; i++) {
+       document.write(`Phần tử thứ ${i} là ${arr[i]} <br>`)
+    }
+
+    // for - in và for - of
+    for(let i in arr) {
+        document.write(`Phần tử thứ ${i} là ${arr[i]} <br>`)
+    }
+
+    for(let item of arr) {
+        document.write(`Phần tử ${item} <br>`)
+    }
+</script>
+</body>
+</html>

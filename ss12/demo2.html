@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let arr = [];
+  let input;
+  while (true) {
+    input = prompt("Nhập số mà giáo sư muốn kiểm tra. Néu nhập xong vui lòng nhập done.")
+    if(input.toLowerCase() === "done") {
+      break;
+    } else {
+        if(isNaN(input)) {
+            alert("Giáo sư nhập sai. Không tính")
+            continue
+        }
+      arr.push(+input);
+    }
+  }
+  document.write(arr)
+</script>
+</body>
+</html>
