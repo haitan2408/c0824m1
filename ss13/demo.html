@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="num">
+<button onclick="checkNumIsPrime()">Check</button>
+<button onclick="showPrime()">Show</button>
+<button onclick="showLessNum()">Show less num</button>
+<p id="result"></p>
+<script>
+    <!--    Kiểm tra 1 số có phải là số nguyên tố hay không-->
+    function checkNumIsPrime() {
+        let num = +document.getElementById("num").value;
+        if (isPrime(num)) {
+            alert(`${num} là số nguyên tố`)
+
+        } else {
+            alert(num + " không phải là số nguyên tố")
+        }
+    }
+
+    //     thêm 1 nút show. Khi người dùng nhấn nút show thì thay vì kiểm tra số đó thì hiển thị
+    function showPrime() {
+        let countPrime = +document.getElementById("num").value;
+        let num = 2;
+        let count = 0;
+        let result = "";
+        while (count < countPrime) {
+            if(isPrime(num)) {
+                result += `${num} là số nguyên tố <br>`
+                count++;
+            }
+            num++;
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+
+    function showLessNum() {
+        let maxPrime = +document.getElementById("num").value;
+        let result = "";
+        for (let num = 2; num < maxPrime; num++) {
+            if(isPrime(num)) {
+                result += `${num} là số nguyên tố <br>`
+            }
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+
+    function isPrime(num) {
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+//     Căp số hoàn hảo: tổng ước của số này bangwf số còn lại
+
+//      Tính giai thừ: 5!= 1 * 2 * 3 * 4 * 5
+    function calculateFactorial(n) {
+        if (n === 1) return 1;
+        return n * calculateFactorial(n-1);
+    }
+
+    alert(calculateFactorial(5));
+</script>
+</body>
+</html>
