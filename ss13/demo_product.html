@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        tr {
+            height: 50px;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f4f4f4;
+        }
+
+        td {
+            text-align: center;
+            width: 200px;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            width: 70px;
+            height: 30px;
+            border: none;
+            border-radius: 5%;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 610px; height: 100px; background-color: #f4f4f4;">
+<div style="padding-top: 10px; padding-left: 40px">
+    <input type="text" id="productSearch" style="width: 300px; height: 30px">
+    <button id="search">Search</button>
+
+    <input type="text" id="productAdd" style="margin-top:5px; width: 300px; height: 30px">
+    <button id="add">Add</button>
+</div>
+</div>
+<div id="result"></div>
+<script>
+
+    function display(products) {
+        let result = "<table>"
+        for (let i = 0; i < products.length; i++) {
+            result += "<tr>"
+            result += `<td>${products[i]}</td>`
+            result += `<td><button>Edit</button></td>`
+            result += `<td><button onclick="deleteProduct(${i})">Delete</button></td>`
+            result += "</tr>"
+        }
+        result += "</table>"
+        document.getElementById("result").innerHTML = result;
+    }
+
+    function deleteProduct(i) {
+        let isDelete = confirm(`Bạn có chắc muốn xóa sản phẩm ${products[i]}?`)
+        if(isDelete) {
+            products.splice(i, 1)
+            display(products)
+            alert("Xóa thành công")
+        }
+
+    }
+
+    document.getElementById("add").addEventListener("click", function () {
+        let productAdd = document.getElementById("productAdd").value;
+        if(productAdd.length > 5 && productAdd.length < 100) {
+            products.push(productAdd);
+            display(products)
+            document.getElementById("productAdd").value = "";
+            alert("Thêm mới thành công")
+        } else {
+            alert("Tên sản phẩm phải đủ từ 5 dến 100 ký tự")
+        }
+    })
+
+    document.getElementById("search").addEventListener("click", function () {
+        let productSearch = document.getElementById("productSearch").value;
+        // filter. Phương án 1
+        let result = products.filter(product => product.includes(productSearch))
+
+        // Phương án 2
+        // for (let i = 0; i < products.length; i++) {
+        //     if(products[i].includes(productSearch)) {
+        //         result.push(products[i])
+        //     }
+        // }
+        display(result)
+    })
+
+
+
+    let products = ["Nokia", "Iphone", "Samsung", "Xiaomi", "Oppo"];
+    display(products);
+</script>
+</body>
+</html>
