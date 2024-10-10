@@ -40,11 +40,37 @@
 <div id="result"></div>
 <script>
 
+    class Product {
+        id;
+        name;
+        price;
+        manufacturer;
+        description;
+
+        constructor(id, name, price, manufacturer, description) {
+            this.id = id;
+            this.name = name;
+            this.price = price;
+            this.manufacturer = manufacturer;
+            this.description = description;
+        }
+
+        sale(percent) {
+            this.price = (1 - percent/100) * this.price;
+        }
+
+
+    }
+
     function display(products) {
         let result = "<table>"
         for (let i = 0; i < products.length; i++) {
             result += "<tr>"
-            result += `<td>${products[i]}</td>`
+            result += `<td>${products[i].id}</td>`
+            result += `<td>${products[i].name}</td>`
+            result += `<td>${products[i].price}</td>`
+            result += `<td>${products[i].manufacturer}</td>`
+            result += `<td>${products[i].description}</td>`
             result += `<td><button>Edit</button></td>`
             result += `<td><button onclick="deleteProduct(${i})">Delete</button></td>`
             result += "</tr>"
@@ -54,7 +80,7 @@
     }
 
     function deleteProduct(i) {
-        let isDelete = confirm(`Bạn có chắc muốn xóa sản phẩm ${products[i]}?`)
+        let isDelete = confirm(`Bạn có chắc muốn xóa sản phẩm ${products[i].name}?`)
         if(isDelete) {
             products.splice(i, 1)
             display(products)
@@ -65,6 +91,7 @@
 
     document.getElementById("add").addEventListener("click", function () {
         let productAdd = document.getElementById("productAdd").value;
+
         if(productAdd.length > 5 && productAdd.length < 100) {
             products.push(productAdd);
             display(products)
@@ -78,7 +105,7 @@
     document.getElementById("search").addEventListener("click", function () {
         let productSearch = document.getElementById("productSearch").value;
         // filter. Phương án 1
-        let result = products.filter(product => product.includes(productSearch))
+        let result = products.filter(product => product.name.includes(productSearch))
 
         // Phương án 2
         // for (let i = 0; i < products.length; i++) {
@@ -91,7 +118,9 @@
 
 
 
-    let products = ["Nokia", "Iphone", "Samsung", "Xiaomi", "Oppo"];
+    let products = [];
+    products.push(new Product(1, "SS24 ultra", 30000000,"SamSung", "Hơi đắt"))
+    products.push(new Product(2, "Iphone 16", 35000000,"Apple", "Hơi đắt"))
     display(products);
 </script>
 </body>
