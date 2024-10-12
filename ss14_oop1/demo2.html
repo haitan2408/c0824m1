@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Person {
+        id;
+        name;
+        address;
+        phone;
+        dob;
+
+        constructor(id, name, address, phone, dob) {
+            this.id = id;
+            this.name = name;
+            this.address = address;
+            this.phone = phone;
+            this.dob = dob;
+        }
+    }
+
+    class Student extends Person {
+        classroom;
+        point;
+
+
+        constructor(id, name, address, phone, dob, classroom, point) {
+            super(id, name, address, phone, dob);
+            this.classroom = classroom;
+            this.point = point
+        }
+
+        calculatorPoint () {
+            return (this.point * 4) / 10
+        }
+
+        toString() {
+            return `Tên là ${this.name}, địa chỉ nhà: ${this.address}, có điểm trên thang 4 là ${this.calculatorPoint()}`
+        }
+
+    }
+
+    class Animal {
+        id;
+    }
+
+    let student = new Student(1, "haiTT", "Quảng nam", "123", "01/01/1111", "C0824M1", 9)
+    document.write(student.toString())
+</script>
+</body>
+</html>
